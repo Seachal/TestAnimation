@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_green_light"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_start_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="属性动画" />
+    <Button
+        android:id="@+id/btn_start_anim2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btn_start_anim"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="40dp"
+        android:text="view动画" />
+
+    <Button
+        android:id="@+id/btn_reset_pos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_start_anim"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:text="复位" />
+
+
+</RelativeLayout>
