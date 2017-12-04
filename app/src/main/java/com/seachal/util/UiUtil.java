@@ -1,13 +1,9 @@
-package com.yanzi.util;
+package com.seachal.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 public class UiUtil {
     private static final String TAG =  "YanZi_UiUtil";

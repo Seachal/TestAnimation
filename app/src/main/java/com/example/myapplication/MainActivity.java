@@ -14,11 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nineoldandroids.view.ViewHelper;
-import com.yanzi.util.UiUtil;
+import com.seachal.util.UiUtil;
 
 
-public class MainActivity extends Activity implements View.OnClickListener{
-    private static final String TAG = "YanZi";
+public class MainActivity extends Activity implements View.OnClickListener {
+    private static final String TAG = "TestAnimation";
 
     Button btn_start_anim;
     Button btn_reset_pos;
@@ -33,19 +33,20 @@ public class MainActivity extends Activity implements View.OnClickListener{
         initUI();
     }
 
-    private void initData(){
+    private void initData() {
         UiUtil.initialize(getApplicationContext());
     }
-    private void initUI(){
-        btn_start_anim = (Button)findViewById(R.id.btn_start_anim);
+
+    private void initUI() {
+        btn_start_anim = (Button) findViewById(R.id.btn_start_anim);
         btn_start_anim.setOnClickListener(this);
-        btn_start_anim2 = (Button)findViewById(R.id.btn_start_anim2);
+        btn_start_anim2 = (Button) findViewById(R.id.btn_start_anim2);
         btn_start_anim2.setOnClickListener(this);
-        btn_reset_pos = (Button)findViewById(R.id.btn_reset_pos);
+        btn_reset_pos = (Button) findViewById(R.id.btn_reset_pos);
         btn_reset_pos.setOnClickListener(this);
-        text = (TextView)findViewById(R.id.text);
+        text = (TextView) findViewById(R.id.text);
         text.setOnClickListener(this);
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)text.getLayoutParams();
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) text.getLayoutParams();
         params.leftMargin = 0;
         params.rightMargin = 0;
         params.setMargins(0, 0, 0, 0);
@@ -56,7 +57,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_start_anim:
                 playAnim1();
                 break;
@@ -69,14 +70,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.text:
                 printParams();
                 break;
-            default:break;
+            default:
+                break;
         }
     }
 
-    public void printParams(){
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)text.getLayoutParams();
-        if(params != null){
-            String s =  "leftMargin = " + params.leftMargin + " rightMargin = " + params.rightMargin
+    public void printParams() {
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) text.getLayoutParams();
+        if (params != null) {
+            String s = "leftMargin = " + params.leftMargin + " rightMargin = " + params.rightMargin
                     + " getLeft = " + text.getLeft() + " getRight = " + text.getRight() + " getWidth = " + text.getWidth();
             Log.i(TAG, s);
             int[] pos = new int[2];
@@ -85,7 +87,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
             Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
         }
     }
-    private void playAnim1(){
+
+    private void playAnim1() {
         int w = text.getWidth();
         int screenW = UiUtil.getScreenWidth();
         int transX = screenW - w;
@@ -113,17 +116,18 @@ public class MainActivity extends Activity implements View.OnClickListener{
         transAnim.setDuration(300);
         transAnim.start();
     }
-    private void resetPos(){
+
+    private void resetPos() {
         ViewHelper.setTranslationX(text, 0);
     }
 
-    private void playAnim2(){
+    private void playAnim2() {
         int w = text.getWidth();
         int screenW = UiUtil.getScreenWidth();
-        int transX = (screenW - w)/2;
+        int transX = (screenW - w) / 2;
         TranslateAnimation transAnim = new TranslateAnimation(0, transX, 0, 0);
         transAnim.setDuration(300);
-       // transAnim.setFillAfter(true);
+        // transAnim.setFillAfter(true);
         transAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -144,7 +148,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
 
-    private void updateParams(){
+    private void updateParams() {
         int w = text.getWidth();
         int screenW = UiUtil.getScreenWidth();
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) text.getLayoutParams();
